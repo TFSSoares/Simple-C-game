@@ -1,3 +1,5 @@
+#include "CharacterClass.h"
+
 class Warrior : public CharacterClass
 {
 private:

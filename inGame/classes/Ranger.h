@@ -1,3 +1,5 @@
+#include "CharacterClass.h"
+
 class Ranger : public CharacterClass
 {
 private:

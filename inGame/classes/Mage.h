@@ -1,3 +1,5 @@
+#include "CharacterClass.h"
+
 class Mage : public CharacterClass
 {
 private:
