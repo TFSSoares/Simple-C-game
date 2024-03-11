@@ -1,32 +1,64 @@
 #include <vector>
 #include <string>
 #include <iostream>
+#include <fstream>
 #include "menus/Menu.h"
 #include "nav/Nav.h"
-#include "inGame/actors/Character.h"
+#include "inGame/actors/Player.h"
+#include "inGame/actors/Monster.h"
+#include "../json/single_include/nlohmann/json.hpp"
+
+using json = nlohmann::json;
 
 typedef std::string String;
 
 int main(){
     static bool continueGame = true;
-    static std::vector <Character> characters;
+    static std::vector <Player> Players;
+    static std::vector <Monster> Monsters;
 
-    while(continueGame){
-        Menu::initialMenu();
+    void registerMonsters();
 
-        String userInput;
-        std::getline(std::cin, userInput);
+    registerMonsters();
 
-        if(userInput == "1"){
-            Nav::startSelection();
-        } else if(userInput == "2"){
+    // while(continueGame){
+    //     Menu::initialMenu();
 
-        } else if(userInput == "0"){
-            continueGame = false;
-        } else{
-            printf("Valor digitado invalido");
+    //     String userInput;
+    //     std::getline(std::cin, userInput);
 
-        }
-    }
+    //     if(userInput == "1"){
+    //         Nav::startSelection();
+    //     } else if(userInput == "2"){
+
+    //     } else if(userInput == "0"){
+    //         continueGame = false;
+    //     } else{
+    //         printf("Valor digitado invalido");
+
+    //     }
+    // }
   return 0;
+}
+
+void registerMonsters(){
+    std::ifstream file("./Information/MonstersInfo.json");
+
+    if(!file.is_open()){
+        std::cerr << "Failed to open file. \n";
+        return;
+    }
+
+     std::string fileContent((std::istreambuf_iterator<char>(file)), std::istreambuf_iterator<char>());
+
+     json jsonData;
+     try{
+        jsonData = json::parse(fileContent);
+    } catch(const std::exception& e){
+        std::cerr << "Failed to parse JSON "<< e.what() << "\n";
+    }
+
+    for(auto& monster : jsonData["monsters"]){
+        std::cout << monster["name"] << "\n";
+    }
 }

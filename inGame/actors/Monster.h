@@ -6,14 +6,13 @@ typedef std::string String;
 
 class Monster : public Actor
 {
-private:
-    /* data */
 public:
-    Monster(/* args */);
+    Monster(const String& name, int level, int hp, int mp, int attack, int defense, int agility, int magic, CharacterClass* characterClass);
     ~Monster();
 };
 
-Monster::Monster(/* args */)
+Monster::Monster(const String& name, int level, int hp, int mp, int attack, int defense, int agility, int magic, CharacterClass* characterClass)
+    : Actor(name, level, hp, mp, attack, defense, agility, magic, characterClass)
 {
 }
 
