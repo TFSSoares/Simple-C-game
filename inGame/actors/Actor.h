@@ -32,14 +32,23 @@ public:
             this->defense = characterClass->getInicialDefense();
             this->agility = characterClass->getInicialAgility();
             this->magic = characterClass->getInicialMagic();
+        } else{
+            this->hp = hp;
+            this->mp = mp;
+            this->attack = attack;
+            this->defense = defense;
+            this->agility = agility;
+            this->magic = magic;
         }
     }
-    void attack();
+    void dealDamage();
     bool defend();
     void takeDamage(int damage);
+    String getName();
+    void getFullInfo();
 };
 
-void Actor::attack(){
+void Actor::dealDamage(){
      std::cout << name << " attacks!";
 }
 
@@ -51,6 +60,22 @@ bool Actor::defend(){
 void Actor::takeDamage(int damage){
     this->hp -= damage;
     std::cout << name << " took " << damage << " of damage!";
+}
+
+String Actor::getName(){
+    return this->name;
+}
+
+void Actor::getFullInfo(){
+    std::cout 
+    << "name:" << this->name + "\n "
+    <<"Level: " << this->level << "\n "
+    <<"Hp: " << this->hp << " \n "
+    <<"Mp: " << this->mp << " \n "
+    <<"Attack: " << this->attack << " \n "
+    <<"Defense: "<< this->defense << " \n "
+    <<"Agility: " << this->agility << " \n "
+    << "Magic: " << this->magic << " \n ";
 }
 
 #endif // ACTOR_H

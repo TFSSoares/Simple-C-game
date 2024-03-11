@@ -1,4 +1,8 @@
+#include <string>
+#include <iostream>
 #include "CharacterClass.h"
+
+typedef std::string String;
 
 class Mage : public CharacterClass
 {
@@ -7,9 +11,10 @@ private:
 public:
     Mage(/* args */);
     ~Mage();
+    virtual void display() override{}
 };
 
-Mage::Mage(/* args */)
+Mage::Mage() : CharacterClass("Mage")
 {
 }
 

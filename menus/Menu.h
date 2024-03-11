@@ -7,7 +7,7 @@ public:
 };
 
 void Menu::initialMenu() {
-     printf("\n1- start\n2- Continue\n0- Exit\n");
+     printf("\n1- New Game\n2- Continue\n0- Exit\n");
 }
 
 void Menu::startMenu() {

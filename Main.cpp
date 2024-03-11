@@ -6,20 +6,25 @@
 #include "nav/Nav.h"
 #include "inGame/actors/Player.h"
 #include "inGame/actors/Monster.h"
+#include "inGame/classes/CharacterClass.h"
+#include "inGame/classes/Mage.h"
 #include "../json/single_include/nlohmann/json.hpp"
 
 using json = nlohmann::json;
 
 typedef std::string String;
 
+static std::vector <Player> Players;
+static std::vector <Monster> Monsters;
+
 int main(){
     static bool continueGame = true;
-    static std::vector <Player> Players;
-    static std::vector <Monster> Monsters;
-
+    
     void registerMonsters();
 
     registerMonsters();
+
+    Monsters[0].getFullInfo();
 
     // while(continueGame){
     //     Menu::initialMenu();
@@ -59,6 +64,18 @@ void registerMonsters(){
     }
 
     for(auto& monster : jsonData["monsters"]){
-        std::cout << monster["name"] << "\n";
+        CharacterClass* mage = new Mage();
+        String name = monster["name"];
+        int level = monster["level"];
+        int hp = monster["hp"];
+        int mp = monster["mp"];
+        int attack = monster["attack"];
+        int defense = monster["defense"];
+        int agility = monster["agility"];
+        int magic = monster["magic"];
+       
+        Monster monsterObj(name, level, hp, mp, attack, defense, agility, magic, mage);
+        Monsters.push_back(monsterObj);
+            
     }
 }

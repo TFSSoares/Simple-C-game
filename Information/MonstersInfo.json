@@ -2,7 +2,7 @@
     "monsters": [
         {
             "name": "Minor goblin",
-            "level": 1,
+            "level": 2,
             "hp":10,
             "mp":10,
             "attack": 5,
@@ -12,7 +12,7 @@
         },
         {
             "name": "Minor ghost",
-            "level": 2,
+            "level": 3,
             "hp":12,
             "mp":10,
             "attack": 7,
