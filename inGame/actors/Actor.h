@@ -19,19 +19,19 @@ private:
     int agility;
     int magic;
     CharacterClass* characterClass;
-public:
-    Actor(String name, int level, int hp, int mp, int attack, int defense, int agility, int magic, CharacterClass* characterClass){
-        this->name = name;
-        this->level = level;
-        this->characterClass = characterClass;
 
+public:
+    Actor(String name, int level, int hp, int mp, int attack, int defense, int agility, int magic, CharacterClass* characterClass)
+    : name(name), level(level), characterClass(characterClass)
+    {
+       
         if(level == 1){
             this->hp = characterClass->getInitialHp();
-            this->mp = characterClass->getInicialMp();
-            this->attack = characterClass->getInitialAttck();
-            this->defense = characterClass->getInicialDefense();
-            this->agility = characterClass->getInicialAgility();
-            this->magic = characterClass->getInicialMagic();
+            this->mp = characterClass->getInitialMp();
+            this->attack = characterClass->getInitialAttack();
+            this->defense = characterClass->getInitialDefense();
+            this->agility = characterClass->getInitialAgility();
+            this->magic = characterClass->getInitialMagic();
         } else{
             this->hp = hp;
             this->mp = mp;

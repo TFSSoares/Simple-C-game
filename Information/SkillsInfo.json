@@ -1,0 +1,53 @@
+{
+    "Mage": [
+        {
+            "name": "Fire ball",
+            "description": "Throws a fire ball into the enemies",
+            "type": "Active",
+            "baseDamage": 2,
+            "manaCost": 2
+        },
+        {
+            "name": "Recovery",
+            "description": "Heals the character's hp",
+            "type": "Active",
+            "baseDamage": 3,
+            "manaCost": 4
+        }
+    ],
+
+    "Ranger": [
+        {
+            "name": "Arrow shower",
+            "description": "Throws multiple arrows at the enemy",
+            "type": "Active",
+            "baseDamage": 4,
+            "manaCost": 2
+        },
+        {
+            "name": "Ice arrow",
+            "description": "Throws an arrow that decrease enemies's agility",
+            "type": "Active",
+            "baseDamage": 2,
+            "manaCost": 3
+        }
+    ],
+
+    "Warrior": [
+        {
+            "name": "Berserk",
+            "description": "Increase attack",
+            "type": "Active",
+            "baseDamage": 7,
+            "manaCost": 2
+        },
+        {
+            "name": "Shield's on",
+            "description": "Increase defense",
+            "type": "Active",
+            "baseDamage": 8,
+            "manaCost": 2
+        }
+    ]
+    
+}

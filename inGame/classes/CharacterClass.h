@@ -1,13 +1,16 @@
-#include <string>
 #ifndef CHARACTERCLASS_H
 #define CHARACTERCLASS_H
+
+#include <string>
+#include <vector>
+#include "Skill.h" // Include the header file for the Skill class
 
 typedef std::string String;
 
 class CharacterClass
 {
 private:
-    virtual void display() = 0;
+    virtual std::vector<Skill> registerSkills() = 0;
     String name;
     int initialHp;
     int initialMp;
@@ -15,63 +18,71 @@ private:
     int initialDefense;
     int initialAgility;
     int initialMagic;
+    std::vector<Skill> skills;
 public:
     CharacterClass(String name, int initialHp, int initialMp, int initialAttack, int initialDefense, int initialAgility,
-        int initialMagic);
-    CharacterClass(String name);
+        int initialMagic, std::vector<Skill> skills);
+    CharacterClass(String name, std::vector<Skill> skills);
     ~CharacterClass();
 
     String getName();
     int getInitialHp();
-    int getInicialMp();
-    int getInitialAttck();
-    int getInicialDefense();
-    int getInicialAgility();
-    int getInicialMagic();
+    int getInitialMp();
+    int getInitialAttack();
+    int getInitialDefense();
+    int getInitialAgility();
+    int getInitialMagic();
 };
 
 CharacterClass::CharacterClass(String name, int initialHp, int initialMp, int initialAttack, int initialDefense, int initialAgility,
-    int initialMagic){
-    
-    this->name = name;
-    this->initialHp = initialHp;
-    this->initialMp = initialMp;
-    this->initialAttack = initialAttack;
-    this->initialDefense = initialDefense;
-    this->initialAgility = initialAgility;
-    this->initialMagic = initialMagic;
+    int initialMagic, std::vector<Skill> skills)
+    : name(name), initialHp(initialHp), initialMp(initialMp), initialAttack(initialAttack),
+    initialDefense(initialDefense), initialAgility(initialAgility), initialMagic(initialMagic), skills(skills)
+{
 }
 
-CharacterClass::CharacterClass(String name){
-    this->name = name;
+CharacterClass::CharacterClass(String name, std::vector<Skill> skills)
+    : name(name), skills(skills)
+{
 }
 
 CharacterClass::~CharacterClass()
 {
 }
 
-String CharacterClass::getName(){
-    return this->name;
+String CharacterClass::getName()
+{
+    return name;
 }
 
-int CharacterClass::getInicialMp(){
-    return this->initialMp;
+int CharacterClass::getInitialHp()
+{
+    return initialHp;
 }
 
-int CharacterClass::getInitialHp(){
-    return this->initialHp;
+int CharacterClass::getInitialMp()
+{
+    return initialMp;
 }
 
-int CharacterClass::getInitialAttck(){
-    return this->initialAttack;
+int CharacterClass::getInitialAttack()
+{
+    return initialAttack;
 }
-int CharacterClass::getInicialDefense(){
-    return this->initialDefense;
+
+int CharacterClass::getInitialDefense()
+{
+    return initialDefense;
 }
-int CharacterClass::getInicialAgility(){
-    return this->initialAgility;
+
+int CharacterClass::getInitialAgility()
+{
+    return initialAgility;
 }
-int CharacterClass::getInicialMagic(){
-    return this->initialMagic;
+
+int CharacterClass::getInitialMagic()
+{
+    return initialMagic;
 }
+
 #endif
